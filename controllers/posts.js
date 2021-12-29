@@ -16,8 +16,12 @@ export const getRecords = async (req, res) => {
         
         // const player=await User.find({_id:gameRecord.user})
         console.log(gameRecord)
+        const sorted = rankingUser.sort((a,b) => {
+
+            return b.level-a.level || a.speed-b.speed})
         
-        res.status(200).json({gameRecord});
+            res.status(200).json({sorted});
+        
     } catch (error) {
         res.status(404).json({ message: error.message });
     }
