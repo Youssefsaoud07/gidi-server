@@ -16,7 +16,7 @@ app.use(cors());
 app.use('/game', postRoutes);
 app.use("/user", userRouter);
 
-const CONNECTION_URL = "mongodb+srv://youssef:Ys21396909@cluster0.k4rv6.mongodb.net/giditest";
+const CONNECTION_URL = "mongodb+srv://youssef:Ys21396909@cluster0.k4rv6.mongodb.net/gidigame";
 const PORT = process.env.PORT || 5000;
 
 mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
