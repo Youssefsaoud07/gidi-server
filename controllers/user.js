@@ -61,3 +61,15 @@ export const energyControler = async (req, res) => {
     console.log(error);
   }
 };
+export const getuser = async (req, res) => {
+  const  id = req.query.id;
+  try {
+    const user=await UserModal.find({_id:id})
+  
+    res.status(201).json({ user});
+  } catch (error) {
+    res.status(500).json({ message: "Something went wrong" });
+    
+    console.log(error);
+  }
+};
