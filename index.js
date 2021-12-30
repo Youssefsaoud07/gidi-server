@@ -17,7 +17,7 @@ app.use('/game', postRoutes);
 app.use("/user", userRouter);
 
 const CONNECTION_URL = "mongodb+srv://youssef:Ys21396909@cluster0.k4rv6.mongodb.net/gidigame";
-const PORT =  2920;
+const PORT = process.env.PORT || 7000;
 
 mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => app.listen(PORT, () => console.log(`Server Running on Port: http://localhost:${PORT}`)))
