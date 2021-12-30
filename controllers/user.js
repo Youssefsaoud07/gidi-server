@@ -46,3 +46,18 @@ export const signup = async (req, res) => {
     console.log(error);
   }
 };
+
+export const energyControler = async (req, res) => {
+  const  id = req.query.id;
+  try {
+    const user=await UserModal.find({_id:id})
+    console.log('energy',user[0].energy)
+   const oldEnergy=user[0].energy
+   const update = await UserModal.findOneAndUpdate({_id:id},{energy:oldEnergy-5},{ new: true });
+    res.status(201).json({ update});
+  } catch (error) {
+    res.status(500).json({ message: "Something went wrong" });
+    
+    console.log(error);
+  }
+};

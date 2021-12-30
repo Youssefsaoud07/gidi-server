@@ -7,7 +7,15 @@ const userSchema = mongoose.Schema({
   id: { type: String },
   location:{type:String},
   energy:{type:Number},
-  image:{type:String}
+  image:{type:String},
+  gendre:{type:String},
+  phonenumber:{type:String},
+  birthyear:{type:String},
+  accountbalance:{type:String},
+  accountnumber:{type:String},
+  accountname:{type:String},
+  bankname:{type:String},
+  
   
 });
 var User = mongoose.model("User", userSchema)
