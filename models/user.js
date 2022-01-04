@@ -11,10 +11,10 @@ const userSchema = mongoose.Schema({
   gendre:{type:String},
   phonenumber:{type:String},
   birthyear:{type:String},
-  accountbalance:{type:String},
   accountnumber:{type:String},
   accountname:{type:String},
   bankname:{type:String},
+  balance:{type:Number}
   
   
 });

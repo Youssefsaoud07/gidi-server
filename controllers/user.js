@@ -31,7 +31,7 @@ export const signup = async (req, res) => {
   try {
     const oldUser = await UserModal.findOne({ email });
 
-    if (oldUser) return res.status(400).json({ message: "User already exists" });
+    if (oldUser) return res.status(400).json({ message: "This e-mail is linked to another account" });
 
     const hashedPassword = await bcrypt.hash(password, 12);
 
@@ -53,7 +53,7 @@ export const energyControler = async (req, res) => {
     const user=await UserModal.find({_id:id})
     console.log('energy',user[0].energy)
    const oldEnergy=user[0].energy
-   const update = await UserModal.findOneAndUpdate({_id:id},{energy:oldEnergy-5},{ new: true });
+   const update = await UserModal.findOneAndUpdate({_id:id},{energy:oldEnergy-2},{ new: true });
     res.status(201).json({ update});
   } catch (error) {
     res.status(500).json({ message: "Something went wrong" });
@@ -73,3 +73,22 @@ export const getuser = async (req, res) => {
     console.log(error);
   }
 };
+
+export const refill = async (req, res) => {
+
+  const  id = req.query.id;
+
+  try {
+    
+    const user=await UserModal.findOneAndUpdate({_id:id},{energy:100},{ new: true })
+    
+    res.status(201).json({user});
+
+  } catch (error) {
+
+    res.status(500).json({ message: "Something went wrong" });
+
+    console.log(error);
+  }
+};
+

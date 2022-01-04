@@ -12,6 +12,10 @@ const gameSchema = mongoose.Schema({
         type: Date,
         default: new Date(),
     },
+    gamedate:{
+        type:String,
+       
+    }
 })
 
 var GameRecord = mongoose.model('GameRecord', gameSchema);
