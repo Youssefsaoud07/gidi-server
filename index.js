@@ -23,7 +23,7 @@ app.use("/user", userRouter);
 app.use('/transaction',transactionRoute);
 let date= new Date()
 console.log(date)
-schedule.scheduleJob('59 23 * * *', async()=>{
+schedule.scheduleJob('59 22 * * *', async()=>{
   let date= new Date()
   let day = moment(date).format('YYYY-MM-DD')
  try{
@@ -34,19 +34,27 @@ schedule.scheduleJob('59 23 * * *', async()=>{
  
   const slicedArray = sorted.slice(0, sorted.length);
   let reward=2000
-  for(let i=0;i<=2;i++){
+  
    
     try{
      
-    const user = await UserModal.findOneAndUpdate({_id:slicedArray[i].user._id},{$inc:{balance:reward}},{new:true})
-
-    console.log(user)
+    const usero = await UserModal.findOneAndUpdate({_id:slicedArray[0].user._id},{$inc:{balance:reward}},{new:true})
+    const usert = await UserModal.findOneAndUpdate({_id:slicedArray[1].user._id},{$inc:{balance:reward}},{new:true})
+    const userf = await UserModal.findOneAndUpdate({_id:slicedArray[2].user._id},{$inc:{balance:reward}},{new:true})
+    const userh = await UserModal.findOneAndUpdate({_id:slicedArray[6].user._id},{$inc:{balance:500}},{new:true})
+    const userw = await UserModal.findOneAndUpdate({_id:slicedArray[13].user._id},{$inc:{balance:500}},{new:true})
+    const usern = await UserModal.findOneAndUpdate({_id:slicedArray[20].user._id},{$inc:{balance:500}},{new:true})
+    const userb = await UserModal.findOneAndUpdate({_id:slicedArray[27].user._id},{$inc:{balance:100}},{new:true})
+    const userj = await UserModal.findOneAndUpdate({_id:slicedArray[34].user._id},{$inc:{balance:100}},{new:true})
+    const userl = await UserModal.findOneAndUpdate({_id:slicedArray[41].user._id},{$inc:{balance:100}},{new:true})
+    const userm = await UserModal.findOneAndUpdate({_id:slicedArray[48].user._id},{$inc:{balance:100}},{new:true})
+    console.log({usero,usert,userf,userh,userw,usern,userb,userj,userl,userm})
 
     }catch(err){
       console.log(err)
     }
     // reward=reward-100
-  }
+  
  
  }catch(err){
    console.log(err)
